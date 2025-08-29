@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const articlesContainer = document.querySelector('.articles-container');
     const faqContainer = document.querySelector('.faq-container');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     const articles = [
         {
@@ -43,11 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
         faqDiv.classList.add('faq-item');
         faqDiv.innerHTML = `
             <div class="faq-question">${faq.question}</div>
-            <div class="faq-answer" style="display: none;">${faq.answer}</div>
+            <div class="faq-answer">${faq.answer}</div>
         `;
         faqContainer.appendChild(faqDiv);
     });
 
+    // Բացել/փակել հարց ու պատասխան բաժինը
     faqContainer.addEventListener('click', (event) => {
         const clickedItem = event.target.closest('.faq-item');
         if (clickedItem) {
@@ -60,14 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            if (answer.style.display === 'none') {
-                answer.style.display = 'block';
-            } else {
-                answer.style.display = 'none';
-            }
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         }
     });
 
+    // Հեռախոսի մենյուի բացում/փակում
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+
+    // Տեքստի անիմացիա
     const typingElement = document.querySelector('.typing-animation');
     if (typingElement) {
         const textToType = typingElement.getAttribute('data-text');
