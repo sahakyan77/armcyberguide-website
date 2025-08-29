@@ -43,6 +43,36 @@ header nav ul li a:hover {
     background-color: #003366;
 }
 
+/* Մենյուի կոճակ հեռախոսների համար */
+.mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #001f3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.mobile-nav ul {
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
+}
+
 /* Գլխավոր էջի Hero բաժին */
 .hero-section {
     position: relative;
@@ -169,6 +199,7 @@ h2 {
 .faq-answer {
     padding-top: 0.5rem;
     color: #555;
+    display: none;
 }
 
 footer {
@@ -197,44 +228,33 @@ footer {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: #ff7b00; }
-
 }
+
 /* Ռեսպոնսիվ դիզայնի կանոններ */
 @media screen and (max-width: 768px) {
-    /* Էկրանի առավելագույն լայնությունը 768px է (պլանշետ/հեռախոս) */
-    
+    .desktop-nav {
+        display: none;
+    }
+    .mobile-nav-toggle {
+        display: block;
+    }
     header {
-        flex-direction: column;
+        justify-content: space-between;
         padding: 1rem;
     }
-
-    header nav ul {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-
-    header nav ul li a {
-        padding: 0.5rem;
-    }
-
     .hero-content {
         margin: 0 5%;
         text-align: center;
     }
-
     .hero-content h1 {
         font-size: 2rem;
     }
-
     .hero-content p {
         font-size: 1rem;
     }
-    
-    .services-container, .insights-container {
-        grid-template-columns: 1fr; /* Դարձնում է մեկ սյունակ */
+    .services-container, .articles-container, .faq-container {
+        grid-template-columns: 1fr;
     }
-
     main {
         padding: 1rem;
     }
