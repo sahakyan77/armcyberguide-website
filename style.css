@@ -197,4 +197,45 @@ footer {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: #ff7b00; }
+
+}
+/* Ռեսպոնսիվ դիզայնի կանոններ */
+@media screen and (max-width: 768px) {
+    /* Էկրանի առավելագույն լայնությունը 768px է (պլանշետ/հեռախոս) */
+    
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav ul li a {
+        padding: 0.5rem;
+    }
+
+    .hero-content {
+        margin: 0 5%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .services-container, .insights-container {
+        grid-template-columns: 1fr; /* Դարձնում է մեկ սյունակ */
+    }
+
+    main {
+        padding: 1rem;
+    }
 }
